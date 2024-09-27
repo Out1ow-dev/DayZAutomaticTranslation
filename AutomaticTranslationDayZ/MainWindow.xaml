@@ -1,0 +1,51 @@
+﻿<ui:FluentWindow x:Class="AutomaticTranslationDayZ.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:AutomaticTranslationDayZ"
+        xmlns:model="clr-namespace:AutomaticTranslationDayZ.Model"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#202020">
+        <StackPanel >
+            <ui:TitleBar Title="NOW MODS Translator"/>
+            <ui:Card Background="Black" Margin="8" Height="54">
+                <ui:HyperlinkButton Margin="280,0,0,0" Content="NOW MODS" NavigateUri="https://discord.gg/XExhvvF58Y" Width="191" Height="81" />
+            </ui:Card>
+        </StackPanel>
+        <CheckBox Content="Русский" IsChecked="True" Width="197" Margin="10,135,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Английский" IsChecked="True" Width="197" Margin="10,167,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Польский" IsChecked="True" Width="197" Margin="10,199,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Французский" IsChecked="True" Width="197" Margin="10,231,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Китайский" IsChecked="True" Width="197" Margin="10,263,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Испанский" IsChecked="True" Width="197" Margin="10,295,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Арабский" IsChecked="True" Width="197" Margin="10,327,0,0" VerticalAlignment="Top"/>
+        <Border Background="#323232" CornerRadius="6" Margin="470,126,26,102">
+            <ui:ListView SelectionMode="Single" ItemsSource="{Binding MyCollection}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type model:Person}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Variable}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding OriginalWord}" Opacity="0.7" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ui:ListView>
+
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Color="Black" Opacity="1"/>
+            </Border.Effect>
+        </Border>
+        <StackPanel  Margin="158,126,368,217">
+            <ui:TextBox Text="{Binding VariableName, Mode=TwoWay}" PlaceholderText="Переменная" Margin="0,0,0,0"/>
+            <ui:TextBox Text="{Binding OriginalWord, Mode=TwoWay}" PlaceholderText="Оригинальный перевод на Русском" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <ui:Button Icon="{ui:SymbolIcon AddCircle12}" Command="{Binding AddButton}" Content="Добавить"  VerticalAlignment="Top" Width="130" Margin="158,222,0,0"/>
+        <ui:Button Content="Удалить" Command="{Binding DeleteButton}" Icon="{ui:SymbolIcon Delete12}" Width="130" Margin="302,222,0,0" VerticalAlignment="Top"/>
+        <ui:Button Content="Перевести" Icon="{ui:SymbolIcon Play12}" Width="152" Margin="622,366,0,0" VerticalAlignment="Top" Height="47"/>
+
+    </Grid>
+</ui:FluentWindow>
