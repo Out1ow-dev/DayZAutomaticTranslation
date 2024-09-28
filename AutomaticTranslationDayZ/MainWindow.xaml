@@ -15,13 +15,14 @@
                 <ui:HyperlinkButton Margin="280,0,0,0" Content="NOW MODS" NavigateUri="https://discord.gg/XExhvvF58Y" Width="191" Height="81" />
             </ui:Card>
         </StackPanel>
-        <CheckBox Content="Русский" IsChecked="True" Width="197" Margin="10,135,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Английский" IsChecked="True" Width="197" Margin="10,167,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Польский" IsChecked="True" Width="197" Margin="10,199,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Французский" IsChecked="True" Width="197" Margin="10,231,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Китайский" IsChecked="True" Width="197" Margin="10,263,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Испанский" IsChecked="True" Width="197" Margin="10,295,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Арабский" IsChecked="True" Width="197" Margin="10,327,0,0" VerticalAlignment="Top"/>
+        <ItemsControl ItemsSource="{Binding Languages}" Margin="10,120,628,21">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" Width="197" Margin="1" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
         <Border Background="#323232" CornerRadius="6" Margin="470,126,26,102">
             <ui:ListView SelectionMode="Single" ItemsSource="{Binding MyCollection}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
                 <ListView.ItemTemplate>
