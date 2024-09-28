@@ -46,7 +46,9 @@
 
         <ui:Button Icon="{ui:SymbolIcon AddCircle12}" Command="{Binding AddButton}" Content="Добавить"  VerticalAlignment="Top" Width="130" Margin="158,222,0,0"/>
         <ui:Button Content="Удалить" Command="{Binding DeleteButton}" Icon="{ui:SymbolIcon Delete12}" Width="130" Margin="302,222,0,0" VerticalAlignment="Top"/>
-        <ui:Button Content="Перевести" Icon="{ui:SymbolIcon Play12}" Width="152" Margin="622,366,0,0" VerticalAlignment="Top" Height="47"/>
+        <ui:Button IsEnabled="{Binding TransplateEnabled}" Command="{Binding TranslateButton}" Content="Перевести" Icon="{ui:SymbolIcon Play12}" Width="152" Margin="622,366,0,0" VerticalAlignment="Top" Height="47"/>
+        
+        <ProgressBar Height="20" Visibility="{Binding RringVisible}" IsIndeterminate="True" Margin="0,427,0,-13"/>
 
     </Grid>
 </ui:FluentWindow>

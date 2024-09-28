@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace AutomaticTranslationDayZ.Model
 {
-    public class Language : ObservableObject
+    public class Languages : ObservableObject
     {
         private bool _isChecked;
         public string Name { get; set; }
+        public string ShortName { get; set; }
+        public string DayZName { get; set; }
 
         public bool IsChecked
         {
