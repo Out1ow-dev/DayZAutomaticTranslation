@@ -91,7 +91,7 @@ namespace AutomaticTranslationDayZ.ViewModel
             {
                 if (person.Variable == VariableName)
                 {
-                    MessageBox.Show("Данная переменная уже существует");
+                    MessageBox.Show("Данная переменная уже сущесвует.");
                     return;
                 }
             }
